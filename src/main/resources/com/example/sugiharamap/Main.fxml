@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane fx:id="scroll" pannable="true">
+         <content>
+            <Group fx:id="group">
+               <children>
+                  <ImageView pickOnBounds="true">
+                     <image>
+                        <Image url="@map.jpg" />
+                     </image>
+                  </ImageView>
+                  <Pane fx:id="field">
+                     <children>
+                        <ToggleButton fx:id="btn1" layoutX="284.0" layoutY="417.0" mnemonicParsing="false" text="btn1" />
+                        <ToggleButton fx:id="btn2" layoutX="908.0" layoutY="282.0" mnemonicParsing="false" text="btn2" />
+                     </children>
+                  </Pane>
+               </children>
+            </Group>
+         </content>
+      </ScrollPane>
+   </children>
+</StackPane>
