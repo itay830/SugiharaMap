@@ -26,7 +26,7 @@ public class ApplicationLauncher extends Application {
 
     private void initClientStage(Stage primaryStage) {
         primaryStage.setTitle("Sugihara Map");
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
         mainController = new MainController();
         Scene primaryScene = new Scene(mainController.getView());
         primaryStage.setScene(primaryScene);

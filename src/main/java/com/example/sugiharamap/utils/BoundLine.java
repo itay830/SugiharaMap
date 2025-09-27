@@ -8,7 +8,6 @@ import javafx.scene.shape.StrokeLineCap;
 
 public class BoundLine extends Line {
     public BoundLine(Node start, Node end, boolean center) {
-        System.out.println(start.boundsInParentProperty().get().getWidth() / 2);
         startXProperty().bind(start.layoutXProperty().add(start.boundsInParentProperty().get().getWidth() / 2));
         setStartY(start.getLayoutY() + start.getBoundsInParent().getHeight()/2);
         setEndX(end.getLayoutX() + end.getBoundsInParent().getWidth()/2);
