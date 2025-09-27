@@ -8,15 +8,16 @@ import javafx.scene.shape.StrokeLineCap;
 
 public class BoundLine extends Line {
     public BoundLine(Node start, Node end, boolean center) {
-        startXProperty().bind(start.layoutXProperty().add(start.boundsInParentProperty().get().getWidth() / 2));
-        setStartY(start.getLayoutY() + start.getBoundsInParent().getHeight()/2);
-        setEndX(end.getLayoutX() + end.getBoundsInParent().getWidth()/2);
-        setEndY(end.getLayoutY() + end.getBoundsInParent().getHeight()/2);
+        startXProperty().bind(start.layoutXProperty());
+        setStartY(start.getLayoutY());
+        setEndX(end.getLayoutX());
+        setEndY(end.getLayoutY());
         setStrokeWidth(2);
-        setStroke(Color.GRAY.deriveColor(0, 1, 1, 1));
+        setStroke(Color.BLUE.deriveColor(0, 1, 1, 1));
         setStrokeLineCap(StrokeLineCap.SQUARE);
         setMouseTransparent(true);
     }
+
     public BoundLine(DoubleProperty startX, DoubleProperty startY, DoubleProperty endX, DoubleProperty endY) {
         startXProperty().bind(startX);
         startYProperty().bind(startY);

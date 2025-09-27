@@ -1,11 +1,9 @@
 package com.example.sugiharamap.main;
 
 import com.example.sugiharamap.Launcher;
-import com.example.sugiharamap.utils.BoundLine;
+import com.example.sugiharamap.customNodes.PlacePoint;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
@@ -13,8 +11,6 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Line;
-import javafx.scene.transform.Scale;
 
 import java.io.IOException;
 
@@ -56,6 +52,7 @@ public class MainViewBuilder {
 
     public void initViews() {
         initScroll();
+        initRoutes();
     }
 
     private void initScroll() {
@@ -76,5 +73,12 @@ public class MainViewBuilder {
             wrapper.setMinWidth(newBounds.getWidth());
             wrapper.setMinHeight(newBounds.getHeight());
         });
+    }
+
+    private void initRoutes()
+    {
+        RouteService.init(content);
+        Pane BertieFrankel = RouteService.getRoutes("Poland", "Lithuania", "Vladivostok", "Japan", "Indonesia", "New Zealand", "Israel");
+
     }
 }

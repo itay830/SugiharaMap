@@ -7,5 +7,6 @@ module com.example.sugiharamap {
     opens com.example.sugiharamap to javafx.fxml;
     exports com.example.sugiharamap;
     exports com.example.sugiharamap.main;
+    opens com.example.sugiharamap.customNodes to javafx.fxml;
     opens com.example.sugiharamap.main to javafx.fxml;
 }
