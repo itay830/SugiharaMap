@@ -8,9 +8,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 
-
 <?import com.example.sugiharamap.customNodes.PlacePoint?>
-<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
             <content>
@@ -22,27 +21,18 @@
                                     <children>
                                         <ImageView fx:id="map" pickOnBounds="true">
                                             <image>
-                                                <Image url="@map2.jpg"/>
+                                                <Image url="@map2.jpg" />
                                             </image>
                                         </ImageView>
 
-                                        <Circle accessibleText="Poland" fill="WHITE" layoutX="996.0" layoutY="491.0"
-                                                opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE"/>
-                                        <Circle accessibleText="Lithuania" fill="WHITE" layoutX="1016.0" layoutY="467.0"
-                                                opacity="0.5" radius="8.0" stroke="BLACK" strokeType="INSIDE"/>
-                                        <Circle accessibleText="Japan" fill="WHITE" layoutX="1528.0" layoutY="574.0"
-                                                opacity="0.5" radius="14.0" stroke="BLACK" strokeType="INSIDE"/>
-                                        <Circle accessibleText="Vladivostok" fill="WHITE" layoutX="1522.0"
-                                                layoutY="530.0" opacity="0.5" radius="13.0" stroke="BLACK"
-                                                strokeType="INSIDE"/>
-                                        <Circle accessibleText="Indonesia" fill="WHITE" layoutX="1418.0" layoutY="788.0"
-                                                opacity="0.5" radius="24.0" stroke="BLACK" strokeType="INSIDE"/>
-                                        <Circle accessibleText="New Zealand" fill="WHITE" layoutX="1662.0"
-                                                layoutY="964.0" opacity="0.5" radius="31.0" stroke="BLACK"
-                                                strokeType="INSIDE"/>
-                                        <Circle accessibleText="Israel" fill="WHITE" layoutX="1066.0" layoutY="621.0"
-                                                opacity="0.5" radius="7.0" stroke="BLACK" strokeType="INSIDE"/>
-                                        <PlacePoint country="Israel" layoutX="1066.0" layoutY="621.0"/>
+                                        <Circle accessibleText="Poland" fill="WHITE" layoutX="996.0" layoutY="491.0" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle accessibleText="Lithuania" fill="WHITE" layoutX="1016.0" layoutY="467.0" opacity="0.5" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle accessibleText="Japan" fill="WHITE" layoutX="1528.0" layoutY="574.0" opacity="0.5" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle accessibleText="Vladivostok" fill="WHITE" layoutX="1522.0" layoutY="530.0" opacity="0.5" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle accessibleText="Indonesia" fill="WHITE" layoutX="1418.0" layoutY="788.0" opacity="0.5" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle accessibleText="New Zealand" fill="WHITE" layoutX="1662.0" layoutY="964.0" opacity="0.5" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Circle accessibleText="Israel" fill="WHITE" layoutX="1066.0" layoutY="621.0" opacity="0.5" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <PlacePoint country="Israel" description="The last place where they got" centerX="1066.0" centerY="621.0"/>
                                     </children>
                                 </Pane>
                             </children>

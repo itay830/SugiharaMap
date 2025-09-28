@@ -64,7 +64,7 @@ public class MainViewBuilder {
             } else {
                 scale /= ZOOM_FACTOR;
             }
-            scale = Math.clamp(scale, 1, 3);
+            scale = Math.clamp(scale, 0.5, 3);
 
             group.setScaleX(scale);
             group.setScaleY(scale);
@@ -79,6 +79,7 @@ public class MainViewBuilder {
     {
         RouteService.init(content);
         Pane BertieFrankel = RouteService.getRoutes("Poland", "Lithuania", "Vladivostok", "Japan", "Indonesia", "New Zealand", "Israel");
+        content.getChildren().add(1, BertieFrankel);
 
     }
 }

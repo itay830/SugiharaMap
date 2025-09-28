@@ -1,8 +1,7 @@
 package com.example.sugiharamap.customNodes;
 
 import com.example.sugiharamap.Launcher;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
@@ -15,12 +14,20 @@ import java.io.IOException;
 public class PlacePoint extends VBox {
 
     private StringProperty country = new SimpleStringProperty(this, "country");
+    private StringProperty description = new SimpleStringProperty(this, "description");
+    private BooleanProperty isTextVisible = new SimpleBooleanProperty(false);
+    private DoubleProperty centerX = new SimpleDoubleProperty(0);
+    private DoubleProperty centerY = new SimpleDoubleProperty(0);
+
 
     @FXML
-    private Text description;
+    private VBox vbTextCont;
 
     @FXML
-    private Text countryName;
+    private Text txtDescription;
+
+    @FXML
+    private Text txtCountryName;
 
     @FXML
     private Circle circle;
@@ -44,28 +51,37 @@ public class PlacePoint extends VBox {
 
     private void initViews()
     {
-        initText();
-        initCountryName();
+        initTxtCountryName();
+        initTxtDescription();
+        initVbTextCont();
         initCircle();
     }
 
-    private void initCountryName() {
-        countryName.textProperty().bind(country);
+    private void initVbTextCont() {
+        vbTextCont.visibleProperty().bind(isTextVisible);
     }
 
-    private void initText()
-    {
-        description.setVisible(false);
+    private void initTxtCountryName() {
+        txtCountryName.textProperty().bind(country);
     }
 
     private void initCircle()
     {
         circle.setOnMouseEntered(event -> {
-            description.setVisible(true);
+            isTextVisible.set(true);
         });
         circle.setOnMouseExited(event -> {
-            description.setVisible(false);
+            isTextVisible.set(false);
         });
+        double dx = getLayoutBounds().getWidth() - circle.getRadius();
+        double dy = getLayoutBounds().getHeight() - circle.getRadius();
+        System.out.println(centerX.get());
+        setLayoutX(centerX.get() - dx);
+        setLayoutX(centerY.get() - dy);
+    }
+
+    private void initTxtDescription()
+    {
     }
 
     public String getCountry() {
@@ -78,5 +94,42 @@ public class PlacePoint extends VBox {
 
     public void setCountry(String country) {
         this.country.set(country);
+    }
+
+    public String getDescription() {
+        return description.get();
+    }
+
+    public StringProperty descriptionProperty() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description.set(description);
+    }
+
+
+    public double getCenterX() {
+        return centerX.get();
+    }
+
+    public DoubleProperty centerXProperty() {
+        return centerX;
+    }
+
+    public void setCenterX(double centerX) {
+        this.centerX.set(centerX);
+    }
+
+    public double getCenterY() {
+        return centerY.get();
+    }
+
+    public DoubleProperty centerYProperty() {
+        return centerY;
+    }
+
+    public void setCenterY(double centerY) {
+        this.centerY.set(centerY);
     }
 }
