@@ -1,13 +1,14 @@
-package com.example.sugiharamap.utils;
+package com.example.sugiharamap.customNodes;
 
 import javafx.beans.property.DoubleProperty;
-import javafx.scene.Node;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.StrokeLineCap;
 
 public class BoundLine extends Line {
-    public BoundLine(Node start, Node end, boolean center) {
+    public BoundLine(Circle start, Circle end)
+    {
         startXProperty().bind(start.layoutXProperty());
         setStartY(start.getLayoutY());
         setEndX(end.getLayoutX());

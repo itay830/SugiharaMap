@@ -12,7 +12,7 @@
             <Text fx:id="txtCountryName" strokeType="OUTSIDE" strokeWidth="0.0" text="Country Name" />
             <TextFlow>
                <children>
-                  <Text fx:id="txtDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="sadasdsadsad asdsadas dsadsa dsadsad" />
+                  <Text fx:id="txtDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
                </children>
             </TextFlow>
          </children>

@@ -1,14 +1,14 @@
 package com.example.sugiharamap;
 
-import com.example.sugiharamap.main.MainController;
+import com.example.sugiharamap.pages.main.MainController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
 public class ApplicationLauncher extends Application {
 
-    private Stage primaryStage = null;
     private MainController mainController;
 
     public void printFXVersion() {
@@ -18,7 +18,6 @@ public class ApplicationLauncher extends Application {
     @Override
     public void start(Stage primaryStage) {
         printFXVersion();
-        this.primaryStage = primaryStage;
         initClientStage(primaryStage);
         primaryStage.show();
         mainController.initViews();

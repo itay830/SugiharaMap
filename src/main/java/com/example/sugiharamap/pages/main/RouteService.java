@@ -1,8 +1,8 @@
-package com.example.sugiharamap.main;
+package com.example.sugiharamap.pages.main;
 
-import com.example.sugiharamap.utils.BoundLine;
-import javafx.scene.Group;
+import com.example.sugiharamap.customNodes.BoundLine;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
 
@@ -10,14 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RouteService {
-    private static Map<String, Shape> nodePlaces = null;
+    private static Map<String, Circle> nodePlaces = null;
 
     public static void init(Pane parent) {
         if (nodePlaces == null) {
             nodePlaces = new HashMap<>();
             parent.getChildren().forEach(node -> {
                 if (node instanceof Shape && !node.getAccessibleText().isBlank()) {
-                    nodePlaces.put(node.getAccessibleText().strip(), (Shape) node);
+                    nodePlaces.put(node.getAccessibleText().strip(), (Circle) node);
                 }
             });
             return;
@@ -31,7 +31,7 @@ public class RouteService {
         }
         Line[] lines = new Line[places.length - 1];
         for (int i = 0; i < places.length - 1; i++) {
-            lines[i] = new BoundLine(nodePlaces.get(places[i]), nodePlaces.get(places[i + 1]), true);
+            lines[i] = new BoundLine(nodePlaces.get(places[i]), nodePlaces.get(places[i + 1]));
         }
         return new Pane(lines);
     }

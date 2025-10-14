@@ -39,7 +39,7 @@ public class PlacePoint extends VBox {
 
     private void build() {
         FXMLLoader loader = new FXMLLoader(
-                Launcher.class.getResource("PlacePoint.fxml"));
+                Launcher.class.getResource("landmark.fxml"));
         loader.setRoot(this);
         loader.setController(this);
         try {
@@ -75,7 +75,6 @@ public class PlacePoint extends VBox {
         });
         double dx = getLayoutBounds().getWidth() - circle.getRadius();
         double dy = getLayoutBounds().getHeight() - circle.getRadius();
-        System.out.println(centerX.get());
         setLayoutX(centerX.get() - dx);
         setLayoutX(centerY.get() - dy);
     }
