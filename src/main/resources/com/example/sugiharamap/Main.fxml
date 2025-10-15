@@ -18,9 +18,9 @@
                             <children>
                                 <Pane fx:id="content">
                                     <children>
-                                        <ImageView fx:id="map" pickOnBounds="true">
+                                        <ImageView fx:id="worldMap" pickOnBounds="true">
                                             <image>
-                                                <Image url="@map.jpg" />
+                                                <Image url="@worldMap.jpg" />
                                             </image>
                                         </ImageView>
 

@@ -4,10 +4,15 @@ import com.example.sugiharamap.utils.mvciUtil.Controller;
 import javafx.scene.layout.Region;
 
 public class MainController extends Controller {
-    MainViewBuilderBeta viewBuilder;
+    private final MainModel model;
+    private final MainViewBuilder viewBuilder;
+    private final MainInteractor interactor;
 
     public MainController() {
-        this.viewBuilder = new MainViewBuilderBeta();
+        this.model = new MainModel();
+        this.interactor = new MainInteractor(model);
+        this.viewBuilder = new MainViewBuilder(model);
+
     }
 
     public Region getView()

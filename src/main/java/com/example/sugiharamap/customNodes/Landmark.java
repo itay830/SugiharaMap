@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -80,13 +81,32 @@ public class Landmark extends VBox {
         });
     }
 
+    @NodeInitializer
+    private void initTxtDescription()
+    {
+        txtDescription.textProperty().bind(descriptionProperty());
+    }
+
+
     public void setPosition(double x, double y) {
         landmarkX.set(x);
         landmarkY.set(y);
-        double dx = (double) 100 / 2; // It's the half of width and height of landmark.fxml. TODO: fix
-        double dy = (double) 94 /2;
+        updatePosition();
+    }
+
+    public void updatePosition()
+    {
+        Bounds bounds = getParent().localToScene(getBoundsInParent());
+        double dx = bounds.getWidth()/2;
+        double dy = bounds.getHeight() - circle.getRadius();
         setLayoutX(landmarkX.get() - dx);
         setLayoutY(landmarkY.get() - dy);
+    }
+
+
+
+    public Circle getCircle() {
+        return circle;
     }
 
     public String getCountry() {

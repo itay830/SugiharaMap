@@ -4,12 +4,19 @@ module com.example.sugiharamap {
     requires java.desktop;
     requires javafx.graphics;
     requires javafx.base;
+    requires com.google.gson;
 
 
-    opens com.example.sugiharamap to javafx.fxml;
     exports com.example.sugiharamap;
     exports com.example.sugiharamap.pages.main;
+    exports com.example.sugiharamap.customNodes;
+    exports com.example.sugiharamap.services;
+    exports com.example.sugiharamap.models;
+
     opens com.example.sugiharamap.customNodes to javafx.fxml;
     opens com.example.sugiharamap.pages.main to javafx.fxml;
-    exports com.example.sugiharamap.customNodes;
+    opens com.example.sugiharamap.models to com.google.gson;
+    opens com.example.sugiharamap.services to javafx.fxml;
+    opens com.example.sugiharamap to javafx.fxml;
+
 }

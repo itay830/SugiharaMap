@@ -9,7 +9,7 @@ import javafx.scene.shape.StrokeLineCap;
 public class BoundLine extends Line {
     public BoundLine(Circle start, Circle end)
     {
-        startXProperty().bind(start.layoutXProperty());
+        setStartX(start.getLayoutX());
         setStartY(start.getLayoutY());
         setEndX(end.getLayoutX());
         setEndY(end.getLayoutY());
@@ -37,7 +37,7 @@ public class BoundLine extends Line {
         setEndX(endX);
         setEndY(endY);
         setStrokeWidth(2);
-        setStroke(Color.GRAY.deriveColor(0, 1, 1, 1));
+        setStroke(Color.BLUE.deriveColor(0, 1, 1, 1));
         setStrokeLineCap(StrokeLineCap.SQUARE);
         setMouseTransparent(true);
     }
