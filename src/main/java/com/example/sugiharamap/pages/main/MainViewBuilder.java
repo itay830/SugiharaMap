@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -34,6 +35,10 @@ public class MainViewBuilder extends ViewBuilder {
     private ImageView ivImageFrame;
     @FXML
     private Label lbLandmarks, lbStart, lbEnd, lbDistance, lbNationality;
+    @FXML
+    private ToggleButton tbContext;
+    @FXML
+    private VBox vbContext;
 
 
     private WorldMap worldMap;
@@ -67,7 +72,7 @@ public class MainViewBuilder extends ViewBuilder {
     @NodeInitializer(order = 0)
     private void initMap() {
         worldMap = new WorldMap();
-        mapContainer.getChildren().add(worldMap);
+        mapContainer.getChildren().addFirst(worldMap);
         worldMap.setRoutesByRouteStory(model.routeStories.getFirst());
     }
 
@@ -123,4 +128,9 @@ public class MainViewBuilder extends ViewBuilder {
         lbNationality.textProperty().bind(model.nationality);
     }
 
+    @NodeInitializer
+    private void initVbContext()
+    {
+        vbContext.visibleProperty().bind(tbContext.selectedProperty());
+    }
 }
