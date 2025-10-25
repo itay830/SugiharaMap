@@ -4,6 +4,7 @@ package com.example.sugiharamap.models;
 import java.util.Map;
 
 public class RouteStory {
+    private String name;
     private Map<String, String> descByCountry;
     private String image;
 
@@ -29,5 +30,18 @@ public class RouteStory {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

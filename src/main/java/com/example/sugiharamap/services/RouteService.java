@@ -3,13 +3,8 @@ package com.example.sugiharamap.services;
 import com.example.sugiharamap.customNodes.BoundLine;
 import com.example.sugiharamap.customNodes.Landmark;
 import com.example.sugiharamap.customNodes.WorldMap;
-import javafx.application.Platform;
-import javafx.geometry.BoundingBox;
 import javafx.geometry.Bounds;
-import javafx.scene.Node;
-import javafx.scene.shape.Circle;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 

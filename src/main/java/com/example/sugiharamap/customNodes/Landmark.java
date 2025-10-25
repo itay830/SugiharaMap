@@ -3,7 +3,6 @@ package com.example.sugiharamap.customNodes;
 import com.example.sugiharamap.Launcher;
 import com.example.sugiharamap.utils.mvciUtil.ViewBuilder;
 import com.example.sugiharamap.utils.nodeUtil.NodeInitializer;
-import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

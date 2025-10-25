@@ -75,6 +75,8 @@ public class WorldMap extends ZoomableScrollPane {
     }
 
     public void setRoutesByRouteStory(RouteStory routeStory) {
+        pRoutes.getChildren().clear();
+
         for (Map.Entry<String, Landmark> entry : landmarksMapByCountries.entrySet()) {
             String desc = routeStory.getDescByCountry().get(entry.getKey());
             if (desc != null) {
@@ -85,10 +87,10 @@ public class WorldMap extends ZoomableScrollPane {
             for (var value : landmarksMapByCountries.values()) {
                 value.updatePosition();
             }
+            setRoutes(RouteService.getRoutesWithCountries(this,
+                    new ArrayList<>(routeStory.getDescByCountry().keySet())));
         });
 
-        Platform.runLater(() -> setRoutes(RouteService.getRoutesWithCountries(this,
-                new ArrayList<>(routeStory.getDescByCountry().keySet()))));
     }
 
 
