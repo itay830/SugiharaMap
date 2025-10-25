@@ -4,6 +4,7 @@ import com.example.sugiharamap.pages.main.MainController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 
@@ -20,6 +21,7 @@ public class ApplicationLauncher extends Application {
         printFXVersion();
         initClientStage(primaryStage);
         primaryStage.show();
+        primaryStage.setFullScreen(false);
         mainController.initViews();
     }
 
@@ -28,6 +30,12 @@ public class ApplicationLauncher extends Application {
         primaryStage.setResizable(true);
         mainController = new MainController();
         Scene primaryScene = new Scene(mainController.getView());
+        primaryScene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.F11)
+            {
+                primaryStage.setFullScreen(!primaryStage.isFullScreen());
+            }
+        });
         primaryStage.setScene(primaryScene);
     }
 

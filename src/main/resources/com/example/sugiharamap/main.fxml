@@ -7,7 +7,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" BorderPane.alignment="CENTER_LEFT">
+      <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
          <children>
             <ChoiceBox fx:id="cbSurvivors" prefWidth="150.0" />
          </children>

@@ -7,6 +7,7 @@ public class RouteStory {
     private String name;
     private Map<String, String> descByCountry;
     private String image;
+    private String desc;
 
     public RouteStory() {
     }
@@ -38,6 +39,14 @@ public class RouteStory {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     @Override

@@ -72,17 +72,19 @@ public class Landmark extends VBox {
 
     @NodeInitializer
     private void initCircle() {
+        setViewOrder(0);
         circle.setOnMouseEntered(event -> {
             isTextVisible.set(true);
+            setViewOrder(-1);
         });
         circle.setOnMouseExited(event -> {
             isTextVisible.set(false);
+            setViewOrder(0);
         });
     }
 
     @NodeInitializer
-    private void initTxtDescription()
-    {
+    private void initTxtDescription() {
         txtDescription.textProperty().bind(descriptionProperty());
     }
 
@@ -93,15 +95,13 @@ public class Landmark extends VBox {
         updatePosition();
     }
 
-    public void updatePosition()
-    {
+    public void updatePosition() {
         Bounds bounds = getParent().localToScene(getBoundsInParent());
-        double dx = bounds.getWidth()/2;
-        double dy = bounds.getHeight() - circle.getRadius();
+        double dx = getWidth() / 2;
+        double dy = getHeight() - circle.getRadius();
         setLayoutX(landmarkX.get() - dx);
         setLayoutY(landmarkY.get() - dy);
     }
-
 
 
     public Circle getCircle() {

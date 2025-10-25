@@ -90,7 +90,6 @@ public class WorldMap extends ZoomableScrollPane {
             setRoutes(RouteService.getRoutesWithCountries(this,
                     new ArrayList<>(routeStory.getDescByCountry().keySet())));
         });
-
     }
 
 

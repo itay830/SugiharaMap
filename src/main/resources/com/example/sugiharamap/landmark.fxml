@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
 <fx:root alignment="CENTER" fillWidth="false" type="VBox" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox fx:id="vbTextCont" alignment="CENTER" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #00FF00FF;">
+      <VBox fx:id="vbTextCont" alignment="CENTER" prefHeight="16.0" prefWidth="200.0" style="-fx-background-color: #011627; -fx-background-radius: 15px; -fx-border-style: solid; -fx-border-color: white; -fx-border-radius: 15px;">
          <children>
-            <Text fx:id="txtCountryName" strokeType="OUTSIDE" strokeWidth="0.0" text="Country Name" />
+            <Text fx:id="txtCountryName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Country Name" underline="true">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
             <TextFlow>
                <children>
-                  <Text fx:id="txtDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+                  <Text fx:id="txtDescription" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
                </children>
             </TextFlow>
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <Circle fx:id="circle" accessibleText="Israel" fill="WHITE" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle" accessibleText="Israel" fill="#160c5beb" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </fx:root>

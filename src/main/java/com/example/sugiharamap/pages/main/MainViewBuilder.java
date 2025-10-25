@@ -9,24 +9,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
 public class MainViewBuilder extends ViewBuilder {
     private final MainModel model;
-    private BorderPane root;
 
     @FXML
+    private StackPane mapContainer;
+    @FXML
     private ChoiceBox<RouteStory> cbSurvivors;
+    @FXML
+    private Label lbName;
+    @FXML
+    private Text textDesc;
 
 
     private WorldMap worldMap;
 
     public Region build() {
-        FXMLLoader loader = new FXMLLoader(Launcher.class.getResource("main.fxml"));
+        FXMLLoader loader = new FXMLLoader(Launcher.class.getResource("betterMain.fxml"));
         loader.setController(this);
+        Region root;
         try {
             root = loader.load();
         } catch (IOException e) {
@@ -52,7 +62,7 @@ public class MainViewBuilder extends ViewBuilder {
     @NodeInitializer(order = 0)
     private void initMap() {
         worldMap = new WorldMap();
-        root.setCenter(worldMap);
+        mapContainer.getChildren().add(worldMap);
         worldMap.setRoutesByRouteStory(model.routeStories.getFirst());
     }
 
@@ -61,12 +71,26 @@ public class MainViewBuilder extends ViewBuilder {
         for (var route : model.routeStories) {
             cbSurvivors.getItems().add(route);
         }
-        cbSurvivors.getSelectionModel().selectFirst();
         cbSurvivors.setOnAction((e) -> {
+            var selectionItem = cbSurvivors.getSelectionModel().getSelectedItem();;
             int selectedIndex = cbSurvivors.getSelectionModel().getSelectedIndex();
             worldMap.setRoutesByRouteStory(model.routeStories.get(selectedIndex));
+            model.selectedSurvivorName.set(selectionItem.getName());
+            model.desc.set(selectionItem.getDesc());
         });
+        cbSurvivors.getSelectionModel().selectFirst();
     }
 
+    @NodeInitializer
+    private void initLbName()
+    {
+        lbName.textProperty().bind(model.selectedSurvivorName);
+    }
+
+    @NodeInitializer
+    private void initTextDesc()
+    {
+        textDesc.textProperty().bind(model.desc);
+    }
 
 }
