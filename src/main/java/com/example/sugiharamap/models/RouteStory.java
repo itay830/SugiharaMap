@@ -8,6 +8,8 @@ public class RouteStory {
     private Map<String, String> descByCountry;
     private String image;
     private String desc;
+    private String distance;
+    private String nationality;
 
     public RouteStory() {
     }
@@ -49,8 +51,31 @@ public class RouteStory {
         this.desc = desc;
     }
 
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public int size()
+    {
+        return descByCountry.size();
+    }
+
     @Override
     public String toString() {
         return name;
     }
+
 }
