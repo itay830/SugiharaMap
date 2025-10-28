@@ -79,6 +79,7 @@ public class WorldMap extends ZoomableScrollPane {
         pRoutes.getChildren().addAll(boundLines);
     }
 
+    @Deprecated
     public void setRoutesByCountries(List<String> countries) {
         setRoutes(RouteService.getRoutesWithCountries(this, countries));
     }
@@ -91,7 +92,9 @@ public class WorldMap extends ZoomableScrollPane {
             entry.getValue().setDescription(Objects.requireNonNullElse(desc, ""));
         }
         Platform.runLater(() -> {
-            for (var value : landmarksMapByCountries.values()) {
+            var landmarks = landmarksMapByCountries.values();
+            for (var value : landmarks) {
+                value.setCircleColor(Landmark.FIRST_COLOR); // Will be changed!
                 value.updatePosition();
             }
             setRoutes(RouteService.getRoutesWithCountries(this,

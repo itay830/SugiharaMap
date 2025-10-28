@@ -26,6 +26,6 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </VBox>
-      <Circle fx:id="circle" accessibleText="Israel" fill="#160c5beb" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle" accessibleText="Israel" fill="#ff0040eb" opacity="0.5" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </fx:root>

@@ -9,12 +9,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 
 public class Landmark extends VBox {
+    public static Color REGULAR_COLOR = Color.rgb(22, 12, 91, 0.92d);
+    public static Color FIRST_COLOR = Color.rgb(17, 218, 114, 0.92d);
+    public static Color LAST_COLOR = Color.rgb(196, 0, 248, 0.92d);
 
     private final StringProperty country = new SimpleStringProperty(this, "country");
     private final StringProperty description = new SimpleStringProperty(this, "description");
@@ -61,8 +65,7 @@ public class Landmark extends VBox {
         initViews();
     }
 
-    public void onMouseMoved(MouseEvent event)
-    {
+    public void onMouseMoved(MouseEvent event) {
         boolean isInside = circle.getBoundsInLocal().contains(
                 circle.sceneToLocal(event.getSceneX(), event.getSceneY())
         );
@@ -98,6 +101,10 @@ public class Landmark extends VBox {
         double dy = getHeight() - circle.getRadius();
         setLayoutX(landmarkX.get() - dx);
         setLayoutY(landmarkY.get() - dy);
+    }
+
+    public void setCircleColor(Color color) {
+        circle.setFill(color);
     }
 
 
