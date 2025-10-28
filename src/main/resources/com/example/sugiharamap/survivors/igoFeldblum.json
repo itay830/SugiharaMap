@@ -1,5 +1,6 @@
 {
   "name": "Igo Feldblum",
+  "desc": "Igo Feldblum was a Holocaust survivor who, along with his family, was saved by the courageous actions of Japanese diplomat Chiune Sugihara. In 1940, Sugihara issued transit visas to thousands of Jewish refugees, including the Feldblum family, allowing them to escape Nazi-occupied Europe. These visas facilitated their journey through the Soviet Union and Japan to safety.\n\nHe said \"A brave man does things which are difficult to do, a hero does things which seem impossible to do.  Sugihara acted even though he knew he would gain nothing from it.\"" ,
   "descByCountry": {
     "Poland": "After Invasion of Poland in September 1939, the Nazi occupation forced many Jewish families to flee eastward toward Lithuania",
     "Lithuania": "He obtained a Japanese transit visa from Chiune Sugihara, who issued visas from July to early September 1940 against official orders",
@@ -8,5 +9,7 @@
     "China": "When Japanese authorities tightened visa rules, most Jewish refugees—including Alex—were relocated to the Shanghai Ghetto (also known as the Hongkou Ghetto)",
     "Israel": "After the war, Alex Weingarten eventually immigrated to the Land of Israel (then the British Mandate), like many other survivors from Shanghai"
   },
-  "image": "IgoFeldblum.png"
+  "image": "IgoFeldblum.png",
+  "distance": "21,000km",
+  "nationality": ""
 }

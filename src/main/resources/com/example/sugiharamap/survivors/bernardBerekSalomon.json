@@ -1,0 +1,16 @@
+{
+  "name": "Bernard Berek Salomon",
+  "desc": "Polish-born Jewish refugee and Holocaust survivor\n\nEscaped Nazi persecution during World War II\n\nTraveled through the Soviet Union and Lithuania, where he received a visa from Chiune Sugihara\n\nPassed through Japan en route to safety\n\nLater settled abroad, rebuilding his life after the war\n\nRemembered for his resilience and for representing the many lives saved by Sugihara’s humanitarian actions",
+  "descByCountry": {
+    "Poland": "After Invasion of Poland in September 1939, Nazi occupation forced many to flee east",
+    "Lithuania": "Chiune Sugihara gave Bernard Berek Salomon his visa, thus letting him to escape the dangers of the war",
+    "Vladivostok": "Refugees traveled on the Trans-Siberian Railway with their Japanese transit visas",
+    "Japan": "Refugees stayed temporarily in Japan. Bertie, like others, awaited further travel arrangements to safer countries",
+    "China": "When Japan tightened visa rules, most refugees were sent to the Shanghai Ghetto",
+    "India": "",
+    "United States": "At last, Bernard's own preference let him to go settle in the USA"
+  },
+  "image": "bernardBerekSalomon.jpg",
+  "distance": "24,550km",
+  "nationality": "Polish"
+}
