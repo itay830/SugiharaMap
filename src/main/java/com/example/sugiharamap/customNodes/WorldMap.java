@@ -8,6 +8,8 @@ import com.example.sugiharamap.utils.nodeUtil.NodeInitializer;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
@@ -58,6 +60,13 @@ public class WorldMap extends ZoomableScrollPane {
             children.remove(child);
             landmarksMapByCountries.put(child.getAccessibleText(), landmark);
         }
+        addEventFilter(MouseEvent.MOUSE_MOVED, event -> {
+            for (Node node : pCountries.getChildren())
+            {
+                var landmark = (Landmark)node;
+                landmark.onMouseMoved(event);
+            }
+        });
     }
 
     @NodeInitializer
@@ -65,7 +74,7 @@ public class WorldMap extends ZoomableScrollPane {
         pRoutes = (Pane) mapRoot.lookup("#pRoutes");
     }
 
-    public void setRoutes(BoundLine... boundLines) {
+    public void setRoutes(ArrowLine... boundLines) {
         pRoutes.getChildren().clear();
         pRoutes.getChildren().addAll(boundLines);
     }
@@ -79,9 +88,7 @@ public class WorldMap extends ZoomableScrollPane {
 
         for (Map.Entry<String, Landmark> entry : landmarksMapByCountries.entrySet()) {
             String desc = routeStory.getDescByCountry().get(entry.getKey());
-            if (desc != null) {
-                entry.getValue().setDescription(desc);
-            }
+            entry.getValue().setDescription(Objects.requireNonNullElse(desc, ""));
         }
         Platform.runLater(() -> {
             for (var value : landmarksMapByCountries.values()) {

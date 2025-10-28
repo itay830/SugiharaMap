@@ -1,0 +1,17 @@
+{
+  "name": "Eliran Ohana",
+  "desc": "STR: 99\nSPD: 33\nDEF: 67\nVision: -12\nPassives:\n\t+10% STR when has beard\n\tDiscounts in Petah Tikva\nDebuff: Wet hands\nSkill: Wet hands",
+  "descByCountry": {
+    "Iran": "",
+    "Saudi Arabia": "",
+    "Niger": "",
+    "Canada": "",
+    "Brazil": "",
+    "Lithuania": "",
+    "Japan": "",
+    "Israel": ""
+  },
+  "image": "eliran.jpg",
+  "distance": "somewhere between 9 and 10",
+  "nationality": "Muhammad Ali Jr"
+}

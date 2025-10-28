@@ -7,6 +7,7 @@ import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -60,6 +61,14 @@ public class Landmark extends VBox {
         initViews();
     }
 
+    public void onMouseMoved(MouseEvent event)
+    {
+        boolean isInside = circle.getBoundsInLocal().contains(
+                circle.sceneToLocal(event.getSceneX(), event.getSceneY())
+        );
+        isTextVisible.set(isInside);
+    }
+
     @NodeInitializer
     private void initVbTextCont() {
         vbTextCont.visibleProperty().bind(isTextVisible);
@@ -71,19 +80,6 @@ public class Landmark extends VBox {
     }
 
     @NodeInitializer
-    private void initCircle() {
-        setViewOrder(0);
-        circle.setOnMouseEntered(event -> {
-            isTextVisible.set(true);
-            setViewOrder(-1);
-        });
-        circle.setOnMouseExited(event -> {
-            isTextVisible.set(false);
-            setViewOrder(0);
-        });
-    }
-
-    @NodeInitializer
     private void initTxtDescription() {
         txtDescription.textProperty().bind(descriptionProperty());
     }
@@ -92,6 +88,7 @@ public class Landmark extends VBox {
     public void setPosition(double x, double y) {
         landmarkX.set(x);
         landmarkY.set(y);
+        setViewOrder(-getLandmarkY());
         updatePosition();
     }
 

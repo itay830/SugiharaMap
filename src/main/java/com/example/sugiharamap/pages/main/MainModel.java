@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainModel {
-    public List<RouteStory> routeStories = new ArrayList<>();
+    public ObjectProperty<List<RouteStory>> routeStoriesProperty = new SimpleObjectProperty<>();
 
     public StringProperty selectedSurvivorName = new SimpleStringProperty();
     public StringProperty desc = new SimpleStringProperty();
@@ -20,7 +20,13 @@ public class MainModel {
     public StringProperty end = new SimpleStringProperty();
     public StringProperty nationality = new SimpleStringProperty();
     public StringProperty distance = new SimpleStringProperty();
+    public ObjectProperty<RouteStory> currRouteStory = new SimpleObjectProperty<>();
 
     public ObjectProperty<Image> imageProperty = new SimpleObjectProperty<>();
+
+    public MainModel()
+    {
+        routeStoriesProperty.set(new ArrayList<>());
+    }
 
 }

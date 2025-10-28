@@ -15,7 +15,7 @@ public record MainInteractor(MainModel model) {
     }
 
     public void initRouteStories() {
-        model.routeStories.clear();
+        model.routeStoriesProperty.get().clear();
         String[] names = FilesService.getAllFileNameInDir(FilesService.survivorsPath);
         Gson gson = new Gson();
         for (var name : names)
@@ -23,7 +23,7 @@ public record MainInteractor(MainModel model) {
             String path = FilesService.survivorsPath.concat(name);
             try (Reader reader = Files.newBufferedReader(Paths.get(path))){
                 RouteStory routeStory = gson.fromJson(reader, RouteStory.class);
-                model.routeStories.add(routeStory);
+                model.routeStoriesProperty.get().add(routeStory);
             } catch (Exception e)
             {
                 throw new RuntimeException(e);

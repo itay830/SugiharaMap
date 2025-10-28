@@ -1,6 +1,7 @@
 package com.example.sugiharamap.pages.main;
 
 import com.example.sugiharamap.Launcher;
+import com.example.sugiharamap.customNodes.LandmarkTimeLine;
 import com.example.sugiharamap.customNodes.WorldMap;
 import com.example.sugiharamap.models.RouteStory;
 import com.example.sugiharamap.utils.filesUtil.FilesService;
@@ -8,7 +9,6 @@ import com.example.sugiharamap.utils.mvciUtil.ViewBuilder;
 import com.example.sugiharamap.utils.nodeUtil.NodeInitializer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
@@ -39,9 +39,12 @@ public class MainViewBuilder extends ViewBuilder {
     private ToggleButton tbContext;
     @FXML
     private VBox vbContext;
+    @FXML
+    private HBox bottomContainer;
 
 
     private WorldMap worldMap;
+    private LandmarkTimeLine landmarkTimeLine;
 
     public Region build() {
         FXMLLoader loader = new FXMLLoader(Launcher.class.getResource("betterMain.fxml"));
@@ -73,30 +76,30 @@ public class MainViewBuilder extends ViewBuilder {
     private void initMap() {
         worldMap = new WorldMap();
         mapContainer.getChildren().addFirst(worldMap);
-        worldMap.setRoutesByRouteStory(model.routeStories.getFirst());
+        worldMap.setRoutesByRouteStory(model.routeStoriesProperty.get().getFirst());
     }
 
     @NodeInitializer
     private void initChSurvivors() {
-        for (var route : model.routeStories) {
+        for (var route : model.routeStoriesProperty.get()) {
             cbSurvivors.getItems().add(route);
         }
         cbSurvivors.setOnAction((e) -> {
             var selectionItem = cbSurvivors.getSelectionModel().getSelectedItem();
-            int selectedIndex = cbSurvivors.getSelectionModel().getSelectedIndex();
-            worldMap.setRoutesByRouteStory(model.routeStories.get(selectedIndex));
-            model.selectedSurvivorName.set(selectionItem.getName());
-            model.desc.set(selectionItem.getDesc());
+            model.currRouteStory.set(selectionItem);
+            worldMap.setRoutesByRouteStory(model.currRouteStory.get());
+            model.selectedSurvivorName.set(model.currRouteStory.get().getName());
+            model.desc.set(model.currRouteStory.get().getDesc());
             model.imageProperty.set(new Image(
                     new File(
-                            FilesService.imagesPath + selectionItem.getImage())
+                            FilesService.imagesPath + model.currRouteStory.get().getImage())
                             .toURI().toString()));
-            model.landMarksCount.set("Landmarks Count: " + selectionItem.size());
-            Object[] values = selectionItem.getDescByCountry().keySet().toArray();
+            model.landMarksCount.set("Landmarks Count: " + model.currRouteStory.get().size());
+            Object[] values = model.currRouteStory.get().getDescByCountry().keySet().toArray();
             model.start.set("Start: " + values[0].toString());
             model.end.set("End: " + values[values.length-1].toString());
-            model.nationality.set("Nationality: " + selectionItem.getNationality());
-            model.distance.set("Distance: " + selectionItem.getDistance());
+            model.nationality.set("Nationality: " + model.currRouteStory.get().getNationality());
+            model.distance.set("Distance: " + model.currRouteStory.get().getDistance());
         });
         cbSurvivors.getSelectionModel().selectFirst();
     }
@@ -113,9 +116,15 @@ public class MainViewBuilder extends ViewBuilder {
 
     @NodeInitializer()
     private void initIvImageFrame() {
-//        ivImageFrame.fitWidthProperty().bind(((VBox)ivImageFrame.getParent()).widthProperty());
-//        ivImageFrame.fitHeightProperty().bind(((VBox)ivImageFrame.getParent()).heightProperty());
         ivImageFrame.imageProperty().bind(model.imageProperty);
+    }
+
+    @NodeInitializer
+    private void initBottomContainer()
+    {
+        landmarkTimeLine = new LandmarkTimeLine();
+        landmarkTimeLine.bindRouteStories(model.currRouteStory);
+        bottomContainer.getChildren().add(landmarkTimeLine);
     }
 
     @NodeInitializer

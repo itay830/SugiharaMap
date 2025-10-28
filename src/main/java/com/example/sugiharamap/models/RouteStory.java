@@ -1,11 +1,12 @@
 package com.example.sugiharamap.models;
 
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RouteStory {
     private String name;
-    private Map<String, String> descByCountry;
+    private LinkedHashMap<String, String> descByCountry;
     private String image;
     private String desc;
     private String distance;
@@ -14,7 +15,7 @@ public class RouteStory {
     public RouteStory() {
     }
 
-    public RouteStory(Map<String, String> descByCountry, String image) {
+    public RouteStory(LinkedHashMap<String, String> descByCountry, String image) {
         this.descByCountry = descByCountry;
         this.image = image;
     }
@@ -27,7 +28,7 @@ public class RouteStory {
         return image;
     }
 
-    public void setDescByCountry(Map<String, String> descByCountry) {
+    public void setDescByCountry(LinkedHashMap<String, String> descByCountry) {
         this.descByCountry = descByCountry;
     }
 

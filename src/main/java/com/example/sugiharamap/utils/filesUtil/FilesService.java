@@ -1,10 +1,7 @@
 package com.example.sugiharamap.utils.filesUtil;
 
-import com.example.sugiharamap.Launcher;
 
 import java.io.File;
-import java.net.URL;
-import java.util.List;
 
 public class FilesService {
     public static final String resPath = "src/main/resources/com/example/sugiharamap/";
